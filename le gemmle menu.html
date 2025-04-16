@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>LE PIZZERIA</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000000;
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo-img {
+            width: 320px;
+            margin-bottom: 30px;
+            filter: brightness(0) invert(1);
+        }
+
+        .content {
+            color: white;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .ar-prompt {
+            font-size: 1.2em;
+            margin: 25px 0;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        button {
+            padding: 12px 35px;
+            margin: 10px;
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        a-scene {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- New Logo Implementation -->
+    <img src="logo.png" class="logo-img" alt="LE PIZZERIA Logo">
+
+    <div class="content">
+        <p class="ar-prompt">
+            Immerse yourself in our menu<br>
+            through the magic of<br>
+            augmented reality
+        </p>
+        
+        <div class="buttons">
+            <button onclick="startAR()">VIEW IN AR</button>
+            <button onclick="showMenu()">VIEW MENU</button>
+        </div>
+    </div>
+
+    <a-scene vr-mode-ui="enabled: false" arjs="trackingMethod: best;">
+        <a-camera gps-camera rotation-reader></a-camera>
+    </a-scene>
+
+    <script>
+        function startAR() {
+            document.querySelector('.content').style.display = 'none';
+            document.querySelector('a-scene').style.display = 'block';
+        }
+
+        function showMenu() {
+            // Add menu display logic here
+            alert('Digital menu coming soon');
+        }
+    </script>
+</body>
+</html>
